@@ -40,4 +40,4 @@ COPY bashrc-add-conf/bashrc-additional.conf /tmp/
 RUN cat /tmp/bashrc-additional.conf >> /etc/bashrc
 
 EXPOSE 81
-CMD ["/opt/nginx/sbin/nginx -c /opt/nginx/conf/nginx.conf"]
+CMD ["nginx"]
