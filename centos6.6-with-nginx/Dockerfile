@@ -10,8 +10,7 @@ RUN yum install ntp -y
 RUN chkconfig --level 345 ntpd on
 
 RUN yum groupinstall "Development Tools" -y
-RUN yum install ncurses-devel nano wget bind-utils bc bluez bluez-libs usbutils pygobject2 dbus-python telnet python-setuptools -y
-RUN yum install ncurses-devel openssh-clients nano wget bind-utils bc bluez bluez-libs usbutils pygobject2 dbus-python telnet ntp python-pip python-setuptools supervisor -y
+RUN yum install ncurses-devel openssh-clients nano wget bind-utils bc bluez bluez-libs usbutils pygobject2 dbus-python telnet python-pip python-setuptools supervisor -y
 
 RUN wget http://nginx.org/download/nginx-1.9.3.tar.gz -O /usr/src/nginx-1.9.3.tar.gz
 
