@@ -11,11 +11,11 @@ RUN chkconfig --level 345 ntpd on
 
 RUN yum groupinstall "Development Tools" -y
 RUN yum install ncurses-devel openssh-clients nano wget bind-utils bc bluez bluez-libs usbutils pygobject2 dbus-python telnet ntp python-pip python-setuptools supervisor -y
-RUN yum clean all
 
 RUN wget http://nginx.org/download/nginx-1.9.3.tar.gz -O /usr/src/nginx-1.9.3.tar.gz
 
 RUN yum install tar git lua lua-devel pcre-devel openssl-devel -y
+RUN yum clean all
 
 RUN cd /usr/src/; \ 
 tar -zxvf nginx-1.9.3.tar.gz
