@@ -9,7 +9,9 @@ RUN yum install ntp -y
 RUN chkconfig --level 345 ntpd on
 
 RUN yum groupinstall "Development Tools" -y
-RUN yum install ncurses-devel nano wget bind-utils bc bluez bluez-libs usbutils pygobject2 dbus-python telnet supervisor -y
+RUN yum install ncurses-devel nano wget bind-utils bc bluez bluez-libs usbutils pygobject2 dbus-python telnet python-setuptools -y
+RUN sudo easy_install pip
+RUN sudo pip install supervisor
 
 RUN wget http://nginx.org/download/nginx-1.9.3.tar.gz -O /usr/src/nginx-1.9.3.tar.gz
 
@@ -35,6 +37,9 @@ RUN mkdir -p /var/ftp/wav
 RUN cp /opt/nginx/conf/nginx.conf /opt/nginx/conf/nginx.conf.orig
 COPY httpd-conf/sounds.conf /opt/nginx/conf/vhosts/
 COPY httpd-conf/nginx.conf /opt/nginx/conf/
+
+COPY etc/supervisord-conf/supervisord.conf /etc/supervisord.conf
+COPY etc/start.sh /start.sh
 
 COPY bashrc-add-conf/bashrc-additional.conf /tmp/
 RUN cat /tmp/bashrc-additional.conf >> /etc/bashrc
