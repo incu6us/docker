@@ -40,6 +40,7 @@ COPY httpd-conf/nginx.conf /opt/nginx/conf/
 
 COPY etc/supervisord-conf/supervisord.conf /etc/supervisord.conf
 COPY etc/start.sh /start.sh
+RUN chmod +x /start.sh
 
 COPY bashrc-add-conf/bashrc-additional.conf /tmp/
 RUN cat /tmp/bashrc-additional.conf >> /etc/bashrc
