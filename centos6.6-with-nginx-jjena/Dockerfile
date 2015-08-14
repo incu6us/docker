@@ -32,7 +32,9 @@ make &&\
 make install
 
 RUN mkdir /opt/nginx/conf/vhosts/
-RUN mkdir -p /var/ftp/wav
+RUN mkdir /var/www
+RUN touch /var/www/index.html
+RUN echo 'player:$apr1$SrxwGaGv$1knJ/7HXkIWjvbVxXDOiu1' > /opt/nginx/conf/htpasswd
 
 RUN cp /opt/nginx/conf/nginx.conf /opt/nginx/conf/nginx.conf.orig
 COPY httpd-conf/sounds.conf /opt/nginx/conf/vhosts/
@@ -46,4 +48,4 @@ COPY bashrc-add-conf/bashrc-additional.conf /tmp/
 RUN cat /tmp/bashrc-additional.conf >> /etc/bashrc
 
 EXPOSE 81
-ENTRYPOINT ["/start.sh"]
+#ENTRYPOINT ["/start.sh"]
