@@ -48,4 +48,4 @@ COPY bashrc-add-conf/bashrc-additional.conf /tmp/
 RUN cat /tmp/bashrc-additional.conf >> /etc/bashrc
 
 EXPOSE 81
-#ENTRYPOINT ["/start.sh"]
+ENTRYPOINT ["/start.sh"]
